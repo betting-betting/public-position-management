@@ -1,0 +1,5 @@
+select *
+from
+placed_tennis_orders
+where 1=1
+and date(placed_ts) = date(sysdate())

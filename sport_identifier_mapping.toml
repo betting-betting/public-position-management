@@ -1,0 +1,7 @@
+[betfair]
+soccer = '1'
+tennis = '2'
+
+[smarkets]
+soccer = 'football_match'
+tennis = 'tennis_match'

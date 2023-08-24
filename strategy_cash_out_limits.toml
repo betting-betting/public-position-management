@@ -1,0 +1,5 @@
+[tennis]
+First_Set_Winner.upper = 0.5
+First_Set_Winner.lower = 2
+hedge.upper = -1
+hedge.lower = -1

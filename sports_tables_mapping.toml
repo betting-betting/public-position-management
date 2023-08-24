@@ -1,0 +1,4 @@
+[price_data_tables]
+soccer = 'betfair_soccer_match_odds_data'
+tennis = 'betfair_tennis_match_odds_data'
+

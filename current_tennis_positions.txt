@@ -1,0 +1,38 @@
+select 
+data_.*,
+case 
+when data_.direction = 'BACK' then ((executed_price/cash_out_odds)-1)*size
+when data_.direction = 'LAY' then ((executed_price/cash_out_odds)-1)*size*(-1)
+end as PnL
+from
+(select 
+orders.*,
+case 
+when orders.direction = 'BACK' then lay_price1
+when orders.direction = 'LAY' then back_price1
+end as cash_out_odds,
+odds.created_ts as cash_out_odds_time
+from
+(select 
+selection_id,
+max(created_ts) as time
+from
+betfair_tennis_match_odds_data
+group by selection_id)odds_times
+inner join 
+betfair_tennis_match_odds_data odds
+on odds_times.selection_id = odds.selection_id and odds_times.time = odds.created_ts
+inner join 
+placed_tennis_orders orders
+on orders.selection_id = odds.selection_id
+left join
+(select *
+from
+settled_tennis_positions
+where date(settled_ts) = date(sysdate())) settled
+on settled.selection_id = orders.selection_id
+where 1=1
+and date(orders.placed_ts) = date(sysdate())
+and odds.inplay = '1'
+and orders.order_status = 'SUCCESS'
+and settled.selection_id is null) data_

@@ -1,0 +1,5 @@
+select *
+from
+settled_tennis_positions
+where 1=1
+and date(settled_ts) = date(sysdate())

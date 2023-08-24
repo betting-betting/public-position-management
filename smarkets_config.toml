@@ -1,0 +1,7 @@
+[auth]
+login = "nathanc25705@gmail.com"
+password = "Nathanclarke13#"
+
+[api]
+base_url = "https://api.smarkets.com/v3/"
+chunk_size = 20
