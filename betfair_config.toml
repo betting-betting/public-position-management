@@ -1,7 +1,7 @@
 [auth]
-username = "nathanc25705@gmail.com"
-password = "Rwgx6098#"
-app_key = "eA3dYycodplE7H7Q"
+username = "######"
+password = "######"
+app_key = "######"
 
 [api]
 bet_url = "https://api.betfair.com/exchange/betting/json-rpc/v1"
